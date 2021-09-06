@@ -1,5 +1,5 @@
 const API="https://chat.dehasoft.com.tr";
-const APP_VERSION="UUdwSWdLUG5ueThVVzlsSVl1SWpzZz09";
+const APP_VERSION="dmFnM2xvSFJITjZPUkRkQ1A3TFBnUT09";
 const loading = $('#loading');
 const chat = $('.chat');
 const forms = $('#forms');
@@ -60,6 +60,7 @@ channel.bind('my-event', function(data) {
                         <div class="messageContent">`+response.message+`</div>
                           <div class="date">`+response.date+`</div>
                       </div>`);
+              goBottom()
             }
           }
       });
