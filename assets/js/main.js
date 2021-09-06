@@ -1,5 +1,5 @@
 const API="https://chat.dehasoft.com.tr";
-const APP_VERSION="MEFtVXNYYzF5bHVPUUszNGdCSFF4Zz09";
+const APP_VERSION="R3FpSWs1Z2tzb1RzUTAxZWFLZ3A1dz09";
 const loading = $('#loading');
 const chat = $('.chat');
 const forms = $('#forms');
@@ -48,7 +48,7 @@ channel.bind('my-event', function(data) {
 
 
 function goBottom(){
-  $("#messages").animate({ scrollTop: $('#messages').height() }, 1);
+  document.getElementById('messages').scrollTo(0, document.getElementById('messages').scrollHeight);
 }
 
 $(document).ready(function(){
