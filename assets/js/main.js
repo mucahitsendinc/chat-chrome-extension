@@ -1,5 +1,5 @@
 const API="https://chat.dehasoft.com.tr";
-const APP_VERSION="R3FpSWs1Z2tzb1RzUTAxZWFLZ3A1dz09";
+const APP_VERSION="UUdwSWdLUG5ueThVVzlsSVl1SWpzZz09";
 const loading = $('#loading');
 const chat = $('.chat');
 const forms = $('#forms');
@@ -43,7 +43,27 @@ var pusher = new Pusher('cc6a096a59440665729b', {
 
 var channel = pusher.subscribe('my-channel');
 channel.bind('my-event', function(data) {
-  alert(JSON.stringify(data));
+  $.ajax({
+          url: API+"/get-message-detail",
+          type: "post",
+          data: {
+                  "token": localStorage.getItem('token'),
+                  "version":APP_VERSION,
+                  "msg":data.messageId
+                } ,
+          success: function (response) {
+            console.log(response)
+            if(response.profile==false){
+              messages.html(messages.html()+`
+                      <div class="message sending">
+                        <div class="name">`+response.username+`</div>
+                        <div class="messageContent">`+response.message+`</div>
+                          <div class="date">`+response.date+`</div>
+                      </div>`);
+            }
+          }
+      });
+
 });
 
 
@@ -102,7 +122,6 @@ $(document).ready(function(){
               chat.show()
               messages.html('')
               response.messages.forEach(element => {
-                  console.log(element)
                   if(element.profile==true){
                     messages.html(messages.html()+`
                       <div class="message sender">
@@ -360,29 +379,33 @@ $(document).ready(function(){
   $('#gonder').on('click',function(e){
 
     
-    $('#gonder').attr('disabled','true')
     const sendingMsg=mesaj.val();
     const current_date=new Date();
-    $.ajax({
-        url: API+"/add-message",
-        type: "post",
-        data: {
-          'version':APP_VERSION,
-          'message':sendingMsg,
-          "token" : localStorage.getItem('token')? localStorage.getItem('token') : ''
-        } ,
-        success: function (response) {
-          const hour=('0'+current_date.getHours()).slice(-2)+':'+('0'+current_date.getMinutes()).slice(-2);
-          messages.html(messages.html()+`
-          <div class="message sender">
-              <div class="messageContent">`+sendingMsg+`</div>
-                <div class="date">`+hour+`</div>
-            </div>`);
-          mesaj.val('');
-          goBottom()
-          $('#gonder').attr('disabled','false')
-        }
-    });
+    if(sendingMsg.length>0 && document.getElementById('gonder').disabled==false){
+      document.getElementById('gonder').disabled=true;
+      console.log("burda")
+      $.ajax({
+          url: API+"/add-message",
+          type: "post",
+          data: {
+            'version':APP_VERSION,
+            'message':sendingMsg,
+            "token" : localStorage.getItem('token')? localStorage.getItem('token') : ''
+          } ,
+          success: function (response) {
+            const hour=('0'+current_date.getHours()).slice(-2)+':'+('0'+current_date.getMinutes()).slice(-2);
+            messages.html(messages.html()+`
+            <div class="message sender">
+                <div class="messageContent">`+sendingMsg+`</div>
+                  <div class="date">`+hour+`</div>
+              </div>`);
+            mesaj.val('');
+            goBottom()
+            document.getElementById('gonder').disabled=false;
+          }
+      });
+    }
+    
 
   })
   
