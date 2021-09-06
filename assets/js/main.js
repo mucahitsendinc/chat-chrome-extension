@@ -1,5 +1,5 @@
 const API="https://chat.dehasoft.com.tr";
-const APP_VERSION="Z05pemFLSGdYQjFySjJGZGY1V3pxQT09";
+const APP_VERSION="SkI1SSswcHRHWE9UcGtqSGM0eXU3QT09";
 const loading = $('#loading');
 const chat = $('.chat');
 const forms = $('#forms');
@@ -84,7 +84,6 @@ $(document).ready(function(){
                   "token" : localStorage.getItem('token')? localStorage.getItem('token') : ''
                 } ,
           success: function (response) {
-            console.log(response)
             if(response.version==false){
               register.hide()
               login.hide()
@@ -101,6 +100,25 @@ $(document).ready(function(){
               loading.hide()
               forms.hide()
               chat.show()
+              messages.html('')
+              response.messages.forEach(element => {
+                  console.log(element)
+                  if(element.profile==true){
+                    messages.html(messages.html()+`
+                      <div class="message sender">
+                          <div class="messageContent">`+element.message+`</div>
+                            <div class="date">`+element.date+`</div>
+                        </div>`);
+                  }else{
+                    messages.html(messages.html()+`
+                      <div class="message sending">
+                        <div class="name">`+element.username+`</div>
+                        <div class="messageContent">`+element.message+`</div>
+                          <div class="date">`+element.date+`</div>
+                      </div>`);
+                  }
+              });
+
             }
           }
       });
@@ -114,7 +132,6 @@ $(document).ready(function(){
                   'version':APP_VERSION
                 } ,
           success: function (response) {
-            console.log(response)
             if(response.version==false){
               register.hide()
               login.hide()
@@ -150,7 +167,6 @@ $(document).ready(function(){
         type: "post",
         data: formData ,
         success: function (response) {
-          console.log(response)
           regErr.html('<div class="errorArea">'+response.msg+'</div>')
           if(response.error!=true){
             $('.errorArea').css('background',green)
@@ -181,7 +197,6 @@ $(document).ready(function(){
         type: "post",
         data: formData ,
         success: function (response) {
-          console.log(response)
           logErr.html('<div class="errorArea">'+response.msg+'</div>')
           if(response.error!=true){
             $('.errorArea').css('background',green)
@@ -219,7 +234,6 @@ $(document).ready(function(){
          data: formData ,
          success: function (response) {
 
-            console.log(response)
 
             forErr.html('<div class="errorArea">'+response.msg+'</div>')
 
@@ -254,7 +268,6 @@ $(document).ready(function(){
          data: formData ,
          success: function (response) {
 
-            console.log(response)
 
             forErr.html('<div class="errorArea">'+response.msg+'</div>')
 
@@ -346,17 +359,9 @@ $(document).ready(function(){
   $('#gonder').on('click',function(e){
 
     
+    $('#gonder').attr('disabled','true')
     const sendingMsg=mesaj.val();
     const current_date=new Date();
-    const hour=('0'+current_date.getHours()).slice(-2)+':'+('0'+current_date.getMinutes()).slice(-2);
-    messages.html(messages.html()+`
-    <div class="message sender">
-        <div class="messageContent">`+sendingMsg+`</div>
-          <div class="date">`+hour+`</div>
-      </div>`);
-    mesaj.val('');
-    goBottom()
-
     $.ajax({
         url: API+"/add-message",
         type: "post",
@@ -366,7 +371,15 @@ $(document).ready(function(){
           "token" : localStorage.getItem('token')? localStorage.getItem('token') : ''
         } ,
         success: function (response) {
-          console.log(response)
+          const hour=('0'+current_date.getHours()).slice(-2)+':'+('0'+current_date.getMinutes()).slice(-2);
+          messages.html(messages.html()+`
+          <div class="message sender">
+              <div class="messageContent">`+sendingMsg+`</div>
+                <div class="date">`+hour+`</div>
+            </div>`);
+          mesaj.val('');
+          goBottom()
+          $('#gonder').attr('disabled','false')
         }
     });
 
