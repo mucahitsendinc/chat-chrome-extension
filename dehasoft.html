@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="TR">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    
+    <div id="dehaChat">
+
+      <div id="loading">
+        <img src="assets/img/loading.gif" height="150px" width="150px" alt="loading...">
+      </div>
+      
+      <div id="newVersion">
+        <h1>Yeni güncellemeler mevcut!</h1>
+        <div>Güncellemeyi tamamlamadan uygulamayı verimli kullanmanız mümkün değildir. lütfen uygulamayı güncelleyiniz.</div>
+        <button id="updateBtn">GÜNCELLE</button>
+        <span>2021 Dehasoft &copy; Mücahit SENDİNÇ </span>
+      </div>
+
+      <div id="forms">
+        <div id="register">
+          <form id="registerForm">
+      
+            <div class="formGroups">
+              <label for="">Kullanıcı adı :</label>
+      
+              <div class="iconGroups">
+                <i class="fa fa-user"></i>
+                <input type="text" name="username" value="" placeholder="Kullanıcı Adı">
+              </div>
+      
+            </div>
+      
+            <div class="formGroups">
+              <label for="">E Posta :</label>
+      
+              <div class="iconGroups">
+                <i class="fa fa-envelope"></i>
+                <input type="email" name="email" value="" placeholder="E Posta">
+              </div>
+      
+      
+            </div>
+      
+            <div class="formGroups">
+              <label for="">Parola :</label>
+      
+              <div class="iconGroups">
+                <i class="fa fa-lock"></i>
+                <input type="password" name="password" value="" placeholder="Parola">
+              </div>
+      
+            </div>
+      
+            <div class="formGroups" id="registerError">
+              <!-- 
+                          <div class="errorArea">
+                          </div>
+                        -->
+            </div>
+      
+            <button type="submit">
+              Kayıt Ol
+              <i class="fa fa-exclamation"></i>
+            </button>
+            <div class="redirectBtnForms redirectLogin" >Giriş Yap</div>
+          </form>
+        </div>
+        <div id="login">
+          <form id="loginForm">
+        
+            <div class="formGroups">
+              <label for="">Kullanıcı adı :</label>
+        
+              <div class="iconGroups">
+                <i class="fa fa-user"></i>
+                <input type="text" name="username" value="" placeholder="Kullanıcı Adı">
+              </div>
+        
+            </div> 
+        
+            <div class="formGroups">
+              <label for="">Parola :</label>
+        
+              <div class="iconGroups">
+                <i class="fa fa-lock"></i>
+                <input type="password" name="password" value="" placeholder="Parola">
+              </div>
+        
+            </div>
+        
+            <div class="formGroups" id="loginError">
+              <!-- 
+                                  <div class="errorArea">
+                                  </div>
+                                -->
+            </div>
+        
+            <button type="submit">
+              Giriş Yap
+              <i class="fa fa-exclamation"></i>
+            </button>
+            <div class="redirectBtnForms2 redirectForgot">Şifremi unuttum?</div>
+            <div class="redirectBtnForms redirectRegister" >Hesap oluştur</div>
+        
+          </form>
+        </div>
+
+        <div id="forgot">
+          <form id="forgotForm">
+        
+          <div class="formGroups" id="forgotEmail">
+            <label for="">E Posta :</label>
+          
+            <div class="iconGroups">
+              <i class="fa fa-envelope"></i>
+              <input type="email"  name="email" value="" placeholder="E Posta">
+            </div>
+
+          
+          </div>
+          
+          <div class="formGroups" id="forgotNewPassword">
+            <label for="">Yeni Parola :</label>
+          
+            <div class="iconGroups">
+              <i class="fa fa-lock"></i>
+              <input type="password" name="newpassword" value="" placeholder="Yeni Parola">
+            </div>
+          
+          </div>
+         
+
+
+          <div class="formGroups" id="forgotCode">
+            <label for="">Doğrulama Kodu :</label>
+          
+            <div class="iconGroups">
+              <i class="fa fa-key"></i>
+              <input type="password" name="securitycode" value="" placeholder="Doğrulama Kodu">
+            </div>
+          
+          
+          </div>
+        
+            <div class="formGroups" id="forgotError">
+              <!-- 
+                                          <div class="errorArea">
+                                          </div>
+                                        -->
+            </div>
+            <input type="hidden" name="forgotToken" id="forgotToken" value="">
+            <input type="hidden" name="forgotStatus" id="forgotStatus" value="0">
+            <button type="submit">
+              Doğrulama Kodu Gönder
+              <i class="fa fa-envelope"></i>
+            </button>
+            <div class="redirectBtnForms redirectLogin" >Giriş Yap</div>
+        
+          </form>
+        </div>
+
+      </div>
+
+
+        <div class="title chat">
+          Dehasoft - Chat
+        </div>
+        
+        <div id="messages" class="chat">
+        
+          <div class="message sender">
+            <div class="messageContent">galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte
+              metinler olarak kullanılmıştır. Beşyüz yıl boyu</div>
+          </div>
+        
+          <div class="message sending">
+            <div class="name">Mücahit Sendinç</div>
+            <div class="messageContent">Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı
+              bilinmeyen bir matbaacının bir
+              hurufat numune kitabı oluşturmak üzere bir yazı</div>
+          </div>
+        
+        
+        
+        </div>
+        
+        <div class="send chat">
+        
+          <textarea id="mesaj" placeholder="Mesaj..."></textarea>
+          <button id="gonder"><img src="assets/img/send.png" alt="Gönder"></button>
+        
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/pusher.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{
+   "author": "Dehasoft",
+   "background": {
+      "page": "dehasoft.html",
+      "persistent": true
+   },
+   "browser_action": {
+      "default_icon": {
+         "19": "assets/img/logo_16.png",
+         "38": "assets/img/logo_48.png"
+      },
+      "default_popup": "dehasoft.html",
+      "default_title": "Dehasoft"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": ["assets/js/jquery.js" , "assets/js/pusher.js", "assets/js/script.js", "assets/js/main.js"],
+      "match_about_blank": true,
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   }],
+   "description": "Dehasoft chat app",
+   "manifest_version": 2,
+   "minimum_chrome_version": "55.0",
+   "name": "Dehasoft Chat App",
+   "permissions": [ "tabs", "\u003Call_urls>", "webRequest", "webRequestBlocking", "webNavigation", "storage", "unlimitedStorage", "contextMenus", "cookies" ],
+   "short_name": "Dehasoft",
+   "version": "1.0.0"
+}

@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+  padding:0;
+  margin:0;
+  border:0; 
+  outline:0;
+  font-family: 'Roboto',sans-serif;
+  text-decoration:none;
+}
+@font-face {
+  font-family: 'pass';
+  font-style: normal;
+  font-weight: 400;
+  src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAATsAA8AAAAAB2QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABWAAAABwAAAAcg9+z70dERUYAAAF0AAAAHAAAAB4AJwANT1MvMgAAAZAAAAA/AAAAYH7AkBhjbWFwAAAB0AAAAFkAAAFqZowMx2N2dCAAAAIsAAAABAAAAAQAIgKIZ2FzcAAAAjAAAAAIAAAACAAAABBnbHlmAAACOAAAALkAAAE0MwNYJ2hlYWQAAAL0AAAAMAAAADYPA2KgaGhlYQAAAyQAAAAeAAAAJAU+ATJobXR4AAADRAAAABwAAAAcCPoA6mxvY2EAAANgAAAAEAAAABAA5gFMbWF4cAAAA3AAAAAaAAAAIAAKAE9uYW1lAAADjAAAARYAAAIgB4hZ03Bvc3QAAASkAAAAPgAAAE5Ojr8ld2ViZgAABOQAAAAGAAAABuK7WtIAAAABAAAAANXulPUAAAAA1viLwQAAAADW+JM4eNpjYGRgYOABYjEgZmJgBEI2IGYB8xgAA+AANXjaY2BifMg4gYGVgYVBAwOeYEAFjMgcp8yiFAYHBl7VP8wx/94wpDDHMIoo2DP8B8kx2TLHACkFBkYA8/IL3QB42mNgYGBmgGAZBkYGEEgB8hjBfBYGDyDNx8DBwMTABmTxMigoKKmeV/3z/z9YJTKf8f/X/4/vP7pldosLag4SYATqhgkyMgEJJnQFECcMOGChndEAfOwRuAAAAAAiAogAAQAB//8AD3jaY2BiUGJgYDRiWsXAzMDOoLeRkUHfZhM7C8Nbo41srHdsNjEzAZkMG5lBwqwg4U3sbIx/bDYxgsSNBRUF1Y0FlZUYBd6dOcO06m+YElMa0DiGJIZUxjuM9xjkGRhU2djZlJXU1UDQ1MTcDASNjcTFQFBUBGjYEkkVMJCU4gcCKRTeHCk+fn4+KSllsJiUJEhMUgrMUQbZk8bgz/iA8SRR9qzAY087FjEYD2QPDDAzMFgyAwC39TCRAAAAeNpjYGRgYADid/fqneL5bb4yyLMwgMC1H90HIfRkCxDN+IBpFZDiYGAC8QBbSwuceNpjYGRgYI7594aBgcmOAQgYHzAwMqACdgBbWQN0AAABdgAiAAAAAAAAAAABFAAAAj4AYgI+AGYB9AAAAAAAKgAqACoAKgBeAJIAmnjaY2BkYGBgZ1BgYGIAAUYGBNADEQAFQQBaAAB42o2PwUrDQBCGvzVV9GAQDx485exBY1CU3PQgVgIFI9prlVqDwcZNC/oSPoKP4HNUfQLfxYN/NytCe5GwO9/88+/MBAh5I8C0VoAtnYYNa8oaXpAn9RxIP/XcIqLreZENnjwvyfPieVVdXj2H7DHxPJH/2/M7sVn3/MGyOfb8SWjOGv4K2DRdctpkmtqhos+D6ISh4kiUUXDj1Fr3Bc/Oc0vPqec6A8aUyu1cdTaPZvyXyqz6Fm5axC7bxHOv/r/dnbSRXCk7+mpVrOqVtFqdp3NKxaHUgeod9cm40rtrzfrt2OyQa8fppCO9tk7d1x0rpiQcuDuRkjjtkHt16ctbuf/radZY52/PnEcphXpZOcofiEZNcQAAeNpjYGIAg///GBgZsAF2BgZGJkZmBmaGdkYWRla29JzKggxD9tK8TAMDAxc2D0MLU2NjENfI1M0ZACUXCrsAAAABWtLiugAA) format('woff');
+}
+
+input[type=password]:not(:placeholder-shown) {
+  font-family: 'pass', 'Roboto', Helvetica, Arial, sans-serif;
+}
+body{
+  width:100%;
+  height: 100%;
+}
+#dehaChat{
+  width:300px;
+  height:400px;
+  background-color: #dff9fb;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+#dehaChat #newVersion{
+  position:relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border:14px solid  #eee;
+  display: flex;justify-content: center;align-items: center;
+  flex-direction: column;
+  padding:20px;
+}
+#dehaChat #newVersion h1{
+  font-weight: bold;
+  font-size:20px
+}
+#dehaChat #newVersion div{
+  font-size:14px;
+}
+#dehaChat #newVersion button{
+  width: 100%;
+  height: 40px;
+  margin-top:30px;
+  font-weight: bold;
+  background: rgb(174,238,209);
+  background: radial-gradient(circle, rgba(174,238,209,0.43461134453781514) 0%, rgba(148,187,233,0.4290091036414566) 100%);
+  transition: 600ms all;
+}
+#dehaChat #newVersion button:hover{
+  transform:scale(.8) rotate(5deg);
+}
+#dehaChat #newVersion span{
+  position:absolute;bottom:15px;
+  font-size:10px
+}
+#dehaChat #loading{
+  position: absolute;
+  top:0;left:0;right:0;bottom:0;
+  background-color: #fff;
+  border:5px solid #333;
+  display:flex;justify-content: center;align-items: center;
+}
+#dehaChat #forms{
+  position:absolute;
+  top:0;left:0;bottom:0;right:0;
+  z-index:9999;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+#dehaChat .errorArea{
+  width: 230px;
+  padding:5px;
+  color:#fff;
+  font-size:12px;
+  background: linear-gradient(90deg, rgba(145,47,52,1) 0%, rgba(119,30,22,1) 35%, rgba(145,13,13,1) 100%);
+}
+#dehaChat #forms #forgot{
+  width:100%;
+  height: 100%;
+  display:flex;justify-content: center;align-items: center;
+}
+
+#dehaChat #forms #forgot #forgotForm{
+  display:flex;justify-content: center;align-items: center;flex-direction: column;
+}
+#dehaChat #forms #forgot #forgotForm button{
+  width: 230px;
+  height: 40px;
+  background: rgb(62,80,56);
+  background: linear-gradient(90deg, rgba(62,80,56,1) 0%, rgba(5,79,34,1) 35%, rgba(16,55,19,1) 100%);
+  transition: 400ms all;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border:1px solid #eee;
+  color:#eee;position:relative;
+}
+#dehaChat #forms #forgot #forgotForm button i{
+  font-size:15px;
+}
+#dehaChat #forms #forgot #forgotForm button:hover{
+  background: rgb(105,161,89);
+  background: linear-gradient(90deg, rgba(105,161,89,1) 0%, rgba(9,121,52,1) 35%, rgba(31,124,37,1) 100%);
+  border:1px solid #000;
+  color:rgb(255, 255, 255);
+}
+#dehaChat #forms #forgot #forgotForm button:hover i{
+  font-size:18px;
+}
+#dehaChat #forms #forgot .formGroups{
+  margin-bottom:15px;
+}
+#dehaChat #forms #forgot .formGroups label{
+  font-weight: bold;
+  text-align: left;
+  color:#fff;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#dehaChat #forms #forgot .formGroups input{
+  padding:7px;
+  background-color: rgba(0,0,0,.4);
+  color:#eee;
+  transition: 300ms all;
+}
+#dehaChat #forms #forgot .formGroups input:focus{
+  border:1px solid #000;
+  background-color: rgba(255,255,255,.2);
+  color:#fff;
+}
+#dehaChat #forms #forgot .formGroups .iconGroups input{
+  width: 200px;
+  height: 35px;
+}
+#dehaChat #forms #forgot .formGroups .iconGroups i{
+  width: 30px;
+  background-color: rgb(0, 0, 0);color:#fff;
+  display: flex;justify-content: center;align-items: center;
+  height: 35px;
+}
+
+#dehaChat #forms #forgot .formGroups .iconGroups{
+  display:flex;justify-content: center;align-items: center;
+}
+#dehaChat #forms #forgot .formGroups label{
+  width: 250px;
+  margin-left:25px;
+}
+#dehaChat #forms #register{
+  width:100%;
+  height: 100%;
+  display:flex;justify-content: center;align-items: center;
+}
+
+#dehaChat #forms #register #registerForm{
+  display:flex;justify-content: center;align-items: center;flex-direction: column;
+}
+#dehaChat #forms #register #registerForm button{
+  width: 230px;
+  height: 40px;
+  background: rgb(62,80,56);
+  background: linear-gradient(90deg, rgba(62,80,56,1) 0%, rgba(5,79,34,1) 35%, rgba(16,55,19,1) 100%);
+  transition: 400ms all;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border:1px solid #eee;
+  color:#eee;position:relative;
+}
+#dehaChat #forms #register #registerForm button i{
+  font-size:15px;
+}
+#dehaChat #forms #register #registerForm button:hover{
+  background: rgb(105,161,89);
+  background: linear-gradient(90deg, rgba(105,161,89,1) 0%, rgba(9,121,52,1) 35%, rgba(31,124,37,1) 100%);
+  border:1px solid #000;
+  color:rgb(255, 255, 255);
+}
+#dehaChat #forms #register #registerForm button:hover i{
+  font-size:18px;
+}
+#dehaChat #forms #register .formGroups{
+  margin-bottom:15px;
+}
+#dehaChat #forms #register .formGroups label{
+  font-weight: bold;
+  text-align: left;
+  color:#fff;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#dehaChat #forms #register .formGroups input{
+  padding:7px;
+  background-color: rgba(0,0,0,.4);
+  color:#eee;
+  transition: 300ms all;
+}
+#dehaChat #forms #register .formGroups input:focus{
+  border:1px solid #000;
+  background-color: rgba(255,255,255,.2);
+  color:#fff;
+}
+#dehaChat #forms #register .formGroups .iconGroups input{
+  width: 200px;
+  height: 35px;
+}
+#dehaChat #forms #register .formGroups .iconGroups i{
+  width: 30px;
+  background-color: rgb(0, 0, 0);color:#fff;
+  display: flex;justify-content: center;align-items: center;
+  height: 35px;
+}
+
+#dehaChat #forms #register .formGroups .iconGroups{
+  display:flex;justify-content: center;align-items: center;
+}
+#dehaChat #forms #register .formGroups label{
+  width: 250px;
+  margin-left:25px;
+}
+#dehaChat #forms #login{
+  width:100%;
+  height: 100%;
+  display:flex;justify-content: center;align-items: center;
+}
+
+#dehaChat #forms #login #loginForm{
+  display:flex;justify-content: center;align-items: center;flex-direction: column;
+}
+#dehaChat #forms #login #loginForm button{
+  width: 230px;
+  height: 40px;
+  background: rgb(62,80,56);
+background: linear-gradient(90deg, rgba(62,80,56,1) 0%, rgba(5,79,34,1) 35%, rgba(16,55,19,1) 100%);
+  transition: 400ms all;
+  border:1px solid #eee;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color:#eee;position:relative;
+}
+#dehaChat #forms #login #loginForm button i{
+  font-size:15px;
+}
+#dehaChat #forms #login #loginForm button:hover{
+  background: rgb(105,161,89);
+  background: linear-gradient(90deg, rgba(105,161,89,1) 0%, rgba(9,121,52,1) 35%, rgba(31,124,37,1) 100%);
+  border:1px solid #000;
+  color:rgb(255, 255, 255);
+}
+#dehaChat #forms #login #loginForm button:hover i{
+  font-size:18px;
+}
+#dehaChat #forms #login .formGroups{
+  margin-bottom:15px;
+}
+#dehaChat #forms #login .formGroups label{
+  font-weight: bold;
+  text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color:#fff
+}
+
+#dehaChat #forms #login .formGroups input{
+  padding:7px;
+  background-color: rgba(0,0,0,.4);
+  color:#eee;
+  transition: 300ms all;
+}
+#dehaChat #forms #login .formGroups input:focus{
+  border:1px solid #000;
+  background-color: rgba(255,255,255,.2);
+  color:#fff;
+}
+#dehaChat #forms #login .formGroups .iconGroups input{
+  width: 200px;
+  height: 35px;
+}
+#dehaChat #forms #login .formGroups .iconGroups i{
+  width: 30px;
+  background-color: rgb(0, 0, 0);color:#fff;
+  display: flex;justify-content: center;align-items: center;
+  height: 35px;
+}
+
+#dehaChat #forms #login .formGroups .iconGroups{
+  display:flex;justify-content: center;align-items: center;
+}
+#dehaChat #forms #login .formGroups label{
+  width: 250px;
+  margin-left:25px;
+}
+#dehaChat #forms .redirectBtnForms2{
+  color:#ddd;cursor:pointer;
+  margin-top:10px;
+}
+#dehaChat #forms  .redirectBtnForms{
+  color:#eee;
+  cursor: pointer;
+  bottom:5px;
+  position:absolute;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  bottom:5px;
+}
+#dehaChat .title{
+  position:absolute;
+  width:300px;
+  height:30px;
+  top:0;left:0;
+  box-shadow: 0px 3px 3px #000;
+  color:#fff;
+  font-weight: 500;
+  display: flex;justify-content: center;align-items: center;
+  background-color: #0097e6;
+}
+#dehaChat .send{
+  position: absolute;
+  bottom:0;left:0;
+  height: 60px;
+  width:300px;
+  -webkit-box-shadow: 0px -2px 2px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -2px 2px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px -2px 2px 0px rgba(0,0,0,0.75);
+  display: flex;
+}
+#dehaChat .send #mesaj{
+  width:260px;
+  height:60px;
+  max-height: 60px;
+  min-height: 60px;
+  resize: none;
+  padding:8px;
+}
+#dehaChat .send #gonder{
+  width:40px;
+  height:60px;
+  max-height: 60px!important;
+  display:flex;justify-content: center;align-items: center;
+  background-color: #fff;
+  transition: 300ms all;
+}
+#dehaChat .send #gonder:hover{
+  background-color: #eee;
+}
+#dehaChat .send #gonder img{
+  height: 20px;
+  width:20px
+}
+#dehaChat #messages{
+  position:absolute;
+  margin-top:30px;
+  left:0px;
+  height:310px;
+  width:300px;
+  display:flex;
+  flex-direction: column;
+  overflow-y:scroll;
+  overflow-y:overlay;
+  overflow-x: hidden;
+}
+#dehaChat #messages .message{
+  height: auto;
+  margin:0;padding:0;box-shadow: 0;
+  margin:10px 10px;
+  padding:10px;
+  font-size:12px;
+}
+#dehaChat #messages .message.sending .name{
+  font-size:12px;
+  font-weight: bold;
+}
+#dehaChat #messages .message.sender{
+  background-color: #c7ecee;
+  margin-left:25px;
+  border-radius: 13px;
+  border-bottom-right-radius: 0px;
+}
+#dehaChat #messages .message.sending{
+  background-color: #7ed6df;
+  margin-right:25px;
+  border-radius: 13px;
+  border-bottom-left-radius: 0px;
+}
