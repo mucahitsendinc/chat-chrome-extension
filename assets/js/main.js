@@ -1,5 +1,5 @@
 const API="https://chat.dehasoft.com.tr";
-const APP_VERSION="SkI1SSswcHRHWE9UcGtqSGM0eXU3QT09";
+const APP_VERSION="MEFtVXNYYzF5bHVPUUszNGdCSFF4Zz09";
 const loading = $('#loading');
 const chat = $('.chat');
 const forms = $('#forms');
@@ -117,6 +117,7 @@ $(document).ready(function(){
                           <div class="date">`+element.date+`</div>
                       </div>`);
                   }
+                  goBottom()
               });
 
             }
