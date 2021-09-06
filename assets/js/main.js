@@ -378,13 +378,19 @@ $(document).ready(function(){
     localStorage.removeItem('token')
   })
   $('#gonder').on('click',function(e){
-
-    
     const sendingMsg=mesaj.val();
     const current_date=new Date();
     if(sendingMsg.length>0 && document.getElementById('gonder').disabled==false){
       document.getElementById('gonder').disabled=true;
       console.log("burda")
+      const hour=('0'+current_date.getHours()).slice(-2)+':'+('0'+current_date.getMinutes()).slice(-2);
+      messages.html(messages.html()+`
+      <div class="message sender">
+          <div class="messageContent">`+sendingMsg+`</div>
+            <div class="date">`+hour+`</div>
+        </div>`);
+      mesaj.val('');
+      goBottom()
       $.ajax({
           url: API+"/add-message",
           type: "post",
@@ -394,14 +400,6 @@ $(document).ready(function(){
             "token" : localStorage.getItem('token')? localStorage.getItem('token') : ''
           } ,
           success: function (response) {
-            const hour=('0'+current_date.getHours()).slice(-2)+':'+('0'+current_date.getMinutes()).slice(-2);
-            messages.html(messages.html()+`
-            <div class="message sender">
-                <div class="messageContent">`+sendingMsg+`</div>
-                  <div class="date">`+hour+`</div>
-              </div>`);
-            mesaj.val('');
-            goBottom()
             document.getElementById('gonder').disabled=false;
           }
       });
