@@ -6,6 +6,7 @@ const forms = $('#forms');
 const register = $('#register');
 const login = $('#login');
 const forgot = $('#forgot');
+const settings = $('#settings');
 const regform = $('#registerForm');
 const regErr=$('#registerError');
 const logErr=$('#loginError');
@@ -16,7 +17,8 @@ const forgotCode=$('#forgotCode');
 const forgotStatus=$('#forgotStatus');
 const forgotNewPassword=$('#forgotNewPassword');
 const forgotToken=$('#forgotToken');
-
+const messages=$('#messages');
+const mesaj=$('#mesaj');
 const green="linear-gradient(90deg, rgba(105,215,96,1) 0%, rgba(62,189,42,1) 35%, rgba(138,255,114,1) 100%)";
 const red="linear-gradient(90deg, rgba(145,47,52,1) 0%, rgba(119,30,22,1) 35%, rgba(145,13,13,1) 100%)"
 
@@ -28,25 +30,29 @@ forgot.hide()
 forgotCode.hide()
 forgotNewPassword.hide()
 newVersion.hide()
+settings.hide()
 var myIP=""
 var update=""
 
 
-  Pusher.logToConsole = true;
+Pusher.logToConsole = true;
 
-  var pusher = new Pusher('cc6a096a59440665729b', {
-    cluster: 'eu'
-  });
+var pusher = new Pusher('cc6a096a59440665729b', {
+  cluster: 'eu'
+});
 
-  var channel = pusher.subscribe('my-channel');
-  channel.bind('my-event', function(data) {
-    alert(JSON.stringify(data));
+var channel = pusher.subscribe('my-channel');
+channel.bind('my-event', function(data) {
+  alert(JSON.stringify(data));
 });
 
 
+function goBottom(){
+  $("#messages").animate({ scrollTop: $('#messages').height() }, 1);
+}
 
 $(document).ready(function(){
-  $('#messages').html('')
+  //$('#messages').html('')
 
   getIp=()=>{
     window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;   //compatibility for firefox and chrome
@@ -130,6 +136,7 @@ $(document).ready(function(){
     }
     
   }
+  
   getMessages()
 
   $('#registerForm').on('submit',function(e){
@@ -151,6 +158,7 @@ $(document).ready(function(){
             setTimeout(() => {
               register.hide()
               login.show()
+              regErr.html('')
             }, 1000);
           }else{
             $('.errorArea').css('background',red)
@@ -183,8 +191,9 @@ $(document).ready(function(){
             $('#loginForm').trigger('reset')
             setTimeout(() => {
               getMessages()
+              logErr.html('')
               
-            }, 500);
+            }, 200);
             //register.hide()
             //login.show()
           }else{
@@ -310,21 +319,58 @@ $(document).ready(function(){
   $('#updateBtn').on('click',function(){
     window.open(update,'_blank')
   })
+  $('#mesaj').keypress(function (e) {
+  if(e.which == 13){
+    if(e.shiftKey){
+      
+    }else{
+      $('#gonder').click();
+      return false;
+    }
+  }
+  });   
+  $('.settingsBtn').on('click',function(e){
+    chat.hide()
+    settings.show()
+  })
+  $('.goBack').on('click',function(e){
+    chat.show()
+    settings.hide()
+  })
+  $('.logOut').on('click',function(e){
+    forms.show()
+    login.show()
+    settings.hide()
+    localStorage.removeItem('token')
+  })
   $('#gonder').on('click',function(e){
 
+    
+    const sendingMsg=mesaj.val();
+    const current_date=new Date();
+    const hour=('0'+current_date.getHours()).slice(-2)+':'+('0'+current_date.getMinutes()).slice(-2);
+    messages.html(messages.html()+`
+    <div class="message sender">
+        <div class="messageContent">`+sendingMsg+`</div>
+          <div class="date">`+hour+`</div>
+      </div>`);
+    mesaj.val('');
+    goBottom()
+
     $.ajax({
-        url: API+"/get-message",
+        url: API+"/add-message",
         type: "post",
-        data: {"123":"123"} ,
+        data: {
+          'version':APP_VERSION,
+          'message':sendingMsg,
+          "token" : localStorage.getItem('token')? localStorage.getItem('token') : ''
+        } ,
         success: function (response) {
-          $('#messages').html((response))
           console.log(response)
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          $('#messages').html(textStatus+errorThrown)
         }
     });
 
-
   })
+  
 })
+
