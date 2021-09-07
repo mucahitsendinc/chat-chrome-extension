@@ -22,8 +22,8 @@ body{
   height: 100%;
 }
 #dehaChat{
-  width:300px;
-  height:400px;
+  width:750px;
+  height:600px;
   background-color: #dff9fb;
   display: flex;
   flex-direction: column;
@@ -380,7 +380,7 @@ background: linear-gradient(90deg, rgba(62,80,56,1) 0%, rgba(5,79,34,1) 35%, rgb
 }
 #dehaChat .title{
   position:absolute;
-  width:300px;
+  width:750px;
   height:30px;
   top:0;left:0;
   box-shadow: 0px 3px 3px #000;
@@ -393,14 +393,14 @@ background: linear-gradient(90deg, rgba(62,80,56,1) 0%, rgba(5,79,34,1) 35%, rgb
   position: absolute;
   bottom:0;left:0;
   height: 60px;
-  width:300px;
+  width:750px;
   -webkit-box-shadow: 0px -2px 2px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px -2px 2px 0px rgba(0,0,0,0.75);
   box-shadow: 0px -2px 2px 0px rgba(0,0,0,0.75);
   display: flex;
 }
 #dehaChat .send #mesaj{
-  width:260px;
+  width:710px;
   height:60px;
   max-height: 60px;
   min-height: 60px;
@@ -426,8 +426,8 @@ background: linear-gradient(90deg, rgba(62,80,56,1) 0%, rgba(5,79,34,1) 35%, rgb
   position:absolute;
   margin-top:30px;
   left:0px;
-  height:310px;
-  width:300px;
+  height:510px;
+  width:750px;
   display:flex;
   flex-direction: column;
   overflow-y:scroll;
@@ -453,13 +453,13 @@ background: linear-gradient(90deg, rgba(62,80,56,1) 0%, rgba(5,79,34,1) 35%, rgb
 }
 #dehaChat #messages .message.sender{
   background-color: #c7ecee;
-  margin-left:25px;
+  margin-left:75px;
   border-radius: 13px;
   border-bottom-right-radius: 0px;
 }
 #dehaChat #messages .message.sending{
   background-color: #7ed6df;
-  margin-right:25px;
+  margin-right:75px;
   border-radius: 13px;
   border-bottom-left-radius: 0px;
 }
