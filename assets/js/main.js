@@ -1,5 +1,5 @@
 const API="https://chat.dehasoft.com.tr";
-const APP_VERSION="dmFnM2xvSFJITjZPUkRkQ1A3TFBnUT09";
+const APP_VERSION="U3M4VDRHRkVIK3dWK3ZXQjkrcHByUT09";
 const loading = $('#loading');
 const chat = $('.chat');
 const forms = $('#forms');

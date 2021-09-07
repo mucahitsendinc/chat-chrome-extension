@@ -14,16 +14,18 @@
    },
    "content_scripts": [ {
       "all_frames": true,
-      "js": ["assets/js/jquery.js" , "assets/js/pusher.js", "assets/js/script.js", "assets/js/main.js"],
+      "js": ["assets/js/jquery.js" , "assets/js/pusher.js", "assets/js/script.js"],
       "match_about_blank": true,
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_start"
    }],
+   "content_security_policy": "script-src 'self' 'unsafe-eval' https://chat.dehasoft.com.tr 'unsafe-inline'; object-src 'self'",
    "description": "Dehasoft chat app",
    "manifest_version": 2,
    "minimum_chrome_version": "55.0",
    "name": "Dehasoft Chat App",
-   "permissions": [ "tabs", "\u003Call_urls>", "webRequest", "webRequestBlocking", "webNavigation", "storage", "unlimitedStorage", "contextMenus", "cookies" ],
+   "permissions": [ "tabs", "\u003Call_urls>", "webRequest", "webRequestBlocking", "webNavigation", "storage", "unlimitedStorage", "contextMenus", "cookies" ,"https://chat.dehasoft.com.tr/chat/assets/js/main.js"],
    "short_name": "Dehasoft",
    "version": "1.0.0"
+      
 }
